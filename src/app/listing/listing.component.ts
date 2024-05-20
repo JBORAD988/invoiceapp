@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr'
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Subject } from 'rxjs';
+import { sampleData } from './data';
 
 @Component({
   selector: 'app-listing',
@@ -37,11 +38,17 @@ export class ListingComponent implements OnInit {
   }
 
   LoadInvoice() {
-    this.service.GetAllInvoice().subscribe(res => {
-      this.Invoiceheader = res;
-      this.dtTrigger.next(null);
-    });
+
+      this.Invoiceheader = sampleData;
+
   }
+
+  // LoadInvoice() {
+  //   this.service.GetAllInvoice().subscribe(res => {
+  //     this.Invoiceheader = res;
+  //     this.dtTrigger.next(null);
+  //   });
+  // }
 
   invoiceremove(invoiceno: any) {
     if (confirm('Do you want to remove this Invoice :' + invoiceno)) {
